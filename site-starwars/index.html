@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <style>
+        /* Ajout de styles pour les animations de transition */
+        header, nav {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Début de l'en-tête -->
+    <header>
+        <video autoplay muted loop id="bg-video">
+        <source src="images/star.mp4" type="video/mp4">
+        <!-- Vous pouvez ajouter d'autres sources pour différents formats de vidéo -->
+        <!-- <source src="chemin_de_votre_video.webm" type="video/webm"> -->
+        <!-- <source src="chemin_de_votre_video.ogv" type="video/ogv"> -->
+        <!-- Assurez-vous d'ajuster le chemin de la vidéo et les types de formats selon vos besoins -->
+        </video>
+        <img src="images/logo_starwars.jpg" height="130" width="250" alt="Star Wars">
+    </header>
+    <!-- Fin de l'en-tête -->
+
+    <!-- Début de la navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="page1.html">Films</a></li>
+            <li><a href="page2.html">Personnages</a></li>
+        </ul>
+    </nav>
+    <!-- Fin de la navigation -->
+
+    <!-- Début du contenu principal -->
+    <main>
+        <!-- Section d'introduction -->
+        <section class="intro">
+            <h2>Histoire de Star Wars</h2>
+            <p>Star Wars est une franchise de science-fiction populaire créée par George Lucas. La franchise a débuté avec le film éponyme de 1977 et est rapidement devenue un phénomène culturel mondial.</p>
+        </section>
+        <!-- Fin de la section d'introduction -->
+
+        <!-- Section des films Star Wars -->
+        <section class="movies">
+            <h2>Acctualité Star Wars</h2>
+            <div class="movie">
+                <img src="episode1.jpg" alt="Star Wars Episode I: La Menace Fantôme">
+                <h3>Épisode I : La Menace Fantôme</h3>
+                <p>Date de sortie : 19 mai 1999</p>
+            </div>
+            <!-- Ajoutez plus de divs de films ici -->
+        </section>
+        <!-- Fin de la section des films Star Wars -->
+
+        <!-- Section des personnages populaires -->
+        <section class="characters">
+            <h2>À propos de Star Wars</h2>
+            <div class="character">
+                <img src="luke_skywalker.jpg" alt="Luke Skywalker">
+                <h3>Luke Skywalker</h3>
+                <p>Chevalier Jedi et héros de la Rébellion</p>
+            </div>
+            <!-- Ajoutez plus de divs de personnages ici -->
+        </section>
+        <!-- Fin de la section des personnages populaires -->
+    </main>
+    <!-- Fin du contenu principal -->
+
+
+    <script>
+        // Ajout de l'animation de transition pour l'en-tête et la navigation lors du chargement de la page
+        window.addEventListener('load', () => {
+            document.querySelector('header').style.opacity = 1;
+            document.querySelector('nav').style.opacity = 1;
+
+            document.querySelector('main').classList.add('show-content');
+            document.querySelector('footer').classList.add('show-footer');
+        });
+    </script>
+
+    <script>
+      var video = document.getElementById('bg-video');
+      video.playbackRate = 2; // Réglage de la vitesse de lecture à 2x
+    </script>
+
+    <!-- Début du pied de page -->
+    <footer>
+        <p>&copy; 2024 Star Wars. Tous droits réservés.</p>
+    </footer>
+    <!-- Fin du pied de page -->
+</body>
+</html>
+
+
+
+

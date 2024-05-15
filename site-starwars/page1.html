@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Films</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <style>
+        /* Ajout de styles pour les animations de transition */
+        header, nav {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .movie {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Début de l'en-tête -->
+    <header>
+        <video autoplay muted loop id="bg-video">
+        <source src="images/star.mp4" type="video/mp4">
+        <!-- Vous pouvez ajouter d'autres sources pour différents formats de vidéo -->
+        <!-- <source src="chemin_de_votre_video.webm" type="video/webm"> -->
+        <!-- <source src="chemin_de_votre_video.ogv" type="video/ogv"> -->
+        <!-- Assurez-vous d'ajuster le chemin de la vidéo et les types de formats selon vos besoins -->
+        </video>
+        <img src="images/logo_starwars.jpg" height="130" width="250" alt="Star Wars">
+    </header>
+    <!-- Fin de l'en-tête -->
+
+
+
+    <!-- Début de la navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="page1.html">Films</a></li>
+            <li><a href="page2.html">Personnages</a></li>
+        </ul>
+    </nav>
+    <!-- Fin de la navigation -->
+
+    <!-- Section des films Star Wars -->
+    <div class="movies">
+        <div class="movie movie1">
+            <div>
+                <br>
+                <br>
+                <br>
+                <img src="images/episode1.jpg" alt="Star Wars Episode I: La Menace Fantôme" width="600" height="600" >
+                <h3>Épisode I : La Menace Fantôme</h3>
+                <p>Date de sortie : 19 mai 1999 </p>
+                <p class="texte">L'histoire suit la découverte d'Anakin Skywalker, un jeune esclave avec une connexion à la Force, par Qui-Gon Jinn et Obi-Wan Kenobi. Ils tentent de le libérer de Tatooine tandis que la galaxie est en proie à des tensions politiques et à l'émergence de la Fédération du Commerce.</p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="movie movie2">
+                <img src="images/episode2.jpg" alt="Star Wars Episode II: L'attaque des Clones" width="600" height="600" >
+                <h3>Épisode II : L'attaque des Clones</h3>
+                <p>Date de sortie : 12 Novembre 2002</p>
+                <p class="texte">Dix ans après les événements du premier film, Anakin Skywalker est devenu un apprenti Jedi et est envoyé avec Obi-Wan Kenobi pour protéger la sénatrice Padmé Amidala. Pendant ce temps, une conspiration menée par le comte Dooku menace la République.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="movie movie3">
+                <img src="images/episode3.jpg" alt="Star Wars Episode III: La Revanche des Sith" width="600" height="600" >
+                <h3>Épisode III : La Revanche des Sith</h3>
+                <p>Date de sortie : 18 mai 2005 </p>
+                <p class="texte">La République est en guerre, et les Sith manipulent les événements pour prendre le contrôle. Anakin Skywalker est séduit du côté obscur de la Force par le chancelier Palpatine, devenant Dark Vador, tandis que la République devient l'Empire Galactique.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="movie movie4">
+                <img src="images/episode4.jpg" alt="Star Wars Episode IV: Un Nouvel Espoir" width="600" height="600" >
+                <h3>Épisode IV : Un Nouvel Espoir</h3>
+                <p>Date de sortie : 19 octobre 1977</p>
+                <p class="texte"> La première trilogie commence avec la découverte de Luke Skywalker par Obi-Wan Kenobi. Ils rejoignent la princesse Leia Organa pour lutter contre l'Empire et détruire l'Étoile de la Mort, menée par Dark Vador.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="movie movie5">
+                <img src="images/episode5.jpg" alt="Star Wars Episode V: L'Empire Contre Attaque" width="600" height="600" >
+                <h3>Épisode V : L'Empire Contre Attaque</h3>
+                <p>Date de sortie : 20 Aout 1980</p>
+                <p class="texte">L'Empire poursuit la lutte contre l'Alliance Rebelle, avec Dark Vador traquant Luke Skywalker. Pendant ce temps, Luke s'entraîne avec Yoda tandis que ses amis sont piégés par l'Empire.</p>
+            </div> 
+        </div>
+        <!-- Ajoutez plus de divs de films ici -->
+    </section>
+    <!-- Fin de la section des films Star Wars -->
+
+    <script>
+        // Ajout de l'animation de transition pour l'en-tête et la navigation lors du chargement de la page
+        window.addEventListener('load', () => {
+            document.querySelector('header').style.opacity = 1;
+            document.querySelector('nav').style.opacity = 1;
+        });
+
+        // Ajout de l'animation de défilement pour chaque film
+        document.addEventListener('scroll', () => {
+            const movies = document.querySelectorAll('.movie');
+            movies.forEach(movie => {
+                const moviePosition = movie.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3; // Modifiez la valeur pour ajuster le moment de l'animation
+                if (moviePosition < screenPosition) {
+                    movie.style.opacity = 1;
+                    movie.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+
+    <script>
+      var video = document.getElementById('bg-video');
+      video.playbackRate = 2; // Réglage de la vitesse de lecture à 2x
+    </script>
+
+    <!-- Début du pied de page -->
+    <footer>
+        <p>&copy; 2024 Star Wars. Tous droits réservés.</p>
+    </footer>
+    <!-- Fin du pied de page -->
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Personnages</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <style>
+        /* Ajout de styles pour les animations de transition */
+        header, nav {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .personnage {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Début de l'en-tête -->
+    <header>
+        <video autoplay muted loop id="bg-video">
+        <source src="images/star.mp4" type="video/mp4">
+        <!-- Vous pouvez ajouter d'autres sources pour différents formats de vidéo -->
+        <!-- <source src="chemin_de_votre_video.webm" type="video/webm"> -->
+        <!-- <source src="chemin_de_votre_video.ogv" type="video/ogv"> -->
+        <!-- Assurez-vous d'ajuster le chemin de la vidéo et les types de formats selon vos besoins -->
+        </video>
+        <img src="images/logo_starwars.jpg" height="130" width="250" alt="Star Wars">
+    </header>
+    <!-- Fin de l'en-tête -->
+
+
+
+    <!-- Début de la navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="page1.html">Films</a></li>
+            <li><a href="page2.html">Personnages</a></li>
+        </ul>
+    </nav>
+    <!-- Fin de la navigation -->
+
+    <!-- Section des Personnages Star Wars -->
+    <div class="personnages">
+        <div class="personnage personnage1">
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <img src="images/anakin1.jpg" alt="Anakin Skywalker" width="600" height="600" >
+                <h3>Anakin Skywalker</h3>
+                <p class="texte">Un jeune esclave sur Tatooine découvert par Qui-Gon Jinn, destiné à devenir un puissant Jedi. Il tombe amoureux de Padmé Amidala, mais est séduit par le côté obscur pour devenir Dark Vador, contribuant à la montée de l'Empire galactique. Il finit par trouver la rédemption en sauvant son fils, Luke Skywalker, et en se retournant contre l'Empereur.</p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="personnage personnage2">
+                <img src="images/obi.jpg" alt="Obi-Wan Kenobi" width="600" height="600" >
+                <h3>Obi-Wan Kenobi</h3>
+                <p class="texte">Maître Jedi qui prend Anakin comme apprenti. Il combat aux côtés de la République, entraîne Luke Skywalker et affronte son ancien apprenti devenu Dark Vador. Il finit par se retirer sur Tatooine pour surveiller Luke.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="personnage personnage3">
+                <img src="images/padme_amidala.jpg" alt="Padmé Amidala" width="600" height="600" >
+                <h3>Padmé Amidala</h3>
+                <p class="texte">Reine de Naboo et plus tard sénatrice, elle lutte contre l'invasion de la Fédération du Commerce et forme une alliance pour résister à l'Empire. Elle tombe amoureuse d'Anakin Skywalker et meurt en donnant naissance à leurs jumeaux, Luke et Leia.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="personnage personnage4">
+                <img src="images/yoda.jpg" alt="Maître Yoda" width="600" height="600" >
+                <h3>Yoda</h3>
+                <p class="texte"> Grand Maître Jedi, sage et puissant, qui entraîne les Jedi depuis des siècles. Il conseille et forme les Jedi, dont Luke Skywalker, et se retire sur la planète Dagobah après la chute de l'Ordre Jedi.</p>
+            </div> 
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="personnage personnage5">
+                <img src="images/.jpg" alt="Palpatine (Dark Sidious)" width="600" height="600" >
+                <h3>Palpatine (Dark Sidious)</h3>
+                <p class="texte"> Un Seigneur Sith manipulant les événements politiques dans la galaxie, il orchestre la montée de l'Empire galactique en tant qu'Empereur Palpatine. Il séduit Anakin Skywalker vers le côté obscur et gouverne tyranniquement la galaxie.</p>
+            </div> 
+        </div>
+        <!-- Ajoutez plus de divs de films ici -->
+    </section>
+    <!-- Fin de la section des films Star Wars -->
+
+    <script>
+        // Ajout de l'animation de transition pour l'en-tête et la navigation lors du chargement de la page
+        window.addEventListener('load', () => {
+            document.querySelector('header').style.opacity = 1;
+            document.querySelector('nav').style.opacity = 1;
+        });
+
+        // Ajout de l'animation de défilement pour chaque film
+        document.addEventListener('scroll', () => {
+            const movies = document.querySelectorAll('.personnage');
+            movies.forEach(personnage => {
+                const personnagePosition = personnage.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3; // Modifiez la valeur pour ajuster le moment de l'animation
+                if (personnagePosition < screenPosition) {
+                    personnage.style.opacity = 1;
+                    personnage.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+
+    <script>
+      var video = document.getElementById('bg-video');
+      video.playbackRate = 2; // Réglage de la vitesse de lecture à 2x
+    </script>
+
+    <!-- Début du pied de page -->
+    <footer>
+        <p>&copy; 2024 Star Wars. Tous droits réservés.</p>
+    </footer>
+    <!-- Fin du pied de page -->
+</body>
+</html>
